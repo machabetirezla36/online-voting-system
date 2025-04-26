@@ -1,9 +1,6 @@
 <?php
 include_once("connection.php");
 
-$result = $conn->query("SELECT user_id, name, password FROM Users WHERE email = '$email'");
-$result = $conn->query("SELECT user_id, name, password, role FROM Users WHERE email = '$email'");
-$_SESSION["role"] = $row['role'];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = htmlspecialchars(trim($_POST['email']));
@@ -14,8 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
        
         $result = $conn->query("SELECT user_id, name, password FROM Users WHERE email = '$email'");
         $result = $conn->query("SELECT user_id, name, password, role FROM Users WHERE email = '$email'");
-        $_SESSION["role"] = $row['role'];
-        
+
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             if (password_verify($password, $row['password'])) {
