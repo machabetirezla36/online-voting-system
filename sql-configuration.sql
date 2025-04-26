@@ -1,8 +1,8 @@
 -- Create the database
-CREATE DATABASE db_batch5_ovs ;
+CREATE DATABASE db_igma capstone ;
 
 -- Use the created database
-USE db_batch5_ovs;
+USE db_igma_capstone;
 
 -- Create users table
 CREATE TABLE tbl_users (
@@ -14,14 +14,6 @@ CREATE TABLE tbl_users (
     role_id INT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
- INSERT INTO Users (fistname, lastname, email, password, role)
- VALUES
-    ('firstname', 'lastname', 'email', 'password', 'role');
-
- -- login.php
-     if ($password == $row['password']) {
-
 -- Table: Voters
 CREATE TABLE Voters (
     voter_id INT PRIMARY KEY AUTO_INCREMENT,
